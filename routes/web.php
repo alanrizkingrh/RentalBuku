@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::POST('login', [AuthController::class, 'authenticating']);
+    Route::get('register', [AuthController::class, 'register']);
+    Route::post('register', [AuthController::class, 'registerProcess']);
+    
+    Route::middleware(['auth'])->group(function () {
+        Route::get('logout', [AuthController::class, 'logout']);
+
+        Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['only_admin']);
+        Route::get('profile', [UserController::class, 'profile'])->middleware(['only_client']);
+    });
