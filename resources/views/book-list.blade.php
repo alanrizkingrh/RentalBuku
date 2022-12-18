@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    ini halaman profile
+    ini halaman book list
 </body>
 </html>

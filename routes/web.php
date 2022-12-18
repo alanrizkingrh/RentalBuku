@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -16,14 +17,15 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PublicController::class, 'index']);
+//proses login dan registrasi
+Route::middleware(['only_guest'])->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::POST('login', [AuthController::class, 'authenticating']);
     Route::get('register', [AuthController::class, 'register']);
     Route::post('register', [AuthController::class, 'registerProcess']);
-    
+});
+//berhasil login
     Route::middleware(['auth'])->group(function () {
         Route::get('logout', [AuthController::class, 'logout']);
 
