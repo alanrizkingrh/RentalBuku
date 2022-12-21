@@ -41,7 +41,15 @@ Route::middleware(['only_guest'])->group(function () {
             Route::get('books', [BookController::class, 'index']);
             
             Route::get('categories', [CategoryController::class, 'index']);
-
+            Route::get('category-add', [CategoryController::class, 'add']);
+            Route::POST('category-add', [CategoryController::class, 'store']);
+            Route::get('category-edit/{slug}', [CategoryController::class,'edit']);
+            Route::put('category-edit/{slug}', [CategoryController::class, 'update']);
+            Route::get('category-delete/{slug}', [CategoryController::class, 'delete']);
+            Route::get('category-destroy/{slug}', [CategoryController::class, 'destroy']);
+            Route::get('category-deleted', [CategoryController::class, 'deletedCategory']);
+            Route::get('category-restore/{slug}', [CategoryController::class, 'restore']);
+            
             Route::get('users', [UserController::class, 'index']);
 
             Route::get('book-rent', [BookRentController::class, 'index']);
