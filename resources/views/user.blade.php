@@ -1,7 +1,7 @@
 @extends('layouts.mainlayouts')
 
-@section('title', 'Book')
+@section('title', 'Users')
 
 @section('content')
-    <H1>INI HALAMAN DAFTAR BUKU</H1>
+<H1>INI HALAMAN USER</H1>
 @endsection

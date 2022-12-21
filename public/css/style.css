@@ -1,0 +1,59 @@
+
+    .main{
+        height: 100vh;
+    }
+    .body-content{ 
+        background: rgb(248, 247, 247);
+    }
+    .sidebar {
+        background: rgb(14, 13, 13);
+        color:rgb(255, 10, 10);
+        box-shadow: 6px 0px 6px rgb(250, 249, 249);
+        padding-top: 12px;
+        padding-left: 8px;
+        padding-right: 12px;
+
+    }
+    .sidebar a{
+        color:rgb(255, 255, 255);
+        text-decoration: none;
+        display: block;
+        padding: 10px 20px;
+    }
+    .sidebar a:hover{
+        transform: translateX(0.10em);
+        background:  rgb(255, 144, 227);
+        border-radius: 16px 16px 16px 16px;
+        opacity: 0.9;
+        color: rgb(0, 0, 0);
+        font-family: Verdana;
+    }
+    .active{
+        background:  rgb(255, 0, 191);
+        border-radius: 16px 16px 16px 16px;
+
+    }
+    .card-data{
+        border: solid 1px;
+        padding: 20px 30px;
+        color: white;
+        border-radius: 20px 20px 20px 20px;
+    }
+    .card-data.books{
+        background: rgb(120, 247, 120);
+    }
+    .card-data.categories{
+        background: rgb(247, 120, 120);
+    }
+    .card-data.users{
+        background: rgb(247, 120, 230);
+    }
+    .card-data i{
+        font-size: 60px;
+    }
+    .card-desc{
+        font-size: 30px;
+    }
+    .card-count{
+        font-size: 30px;
+    }
