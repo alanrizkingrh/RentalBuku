@@ -1,17 +1,19 @@
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
-@section('title', 'Tambah Kategori')
+@section('title', 'Ubah Kategori')
     
 @section('content')
-    <h1>Tambah Kategori Baru</h1>
-    <div class="card">
-        <div class="card-body">
-            <div class="mt-2">
-                <form action="category-add" method="POST">
+    <h1>Ubah Kategori Buku</h1>
+
+    <div class="card " >
+        <div class="card-body ">
+            <div class="mt-2 ">
+                <form action="{{ route('category-edit', $category->slug) }}" method="POST">
                     @csrf
+                    @method('put')
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Nama Kategori</label>
-                        <input type="text" class="form-control" name="name" placeholder="Category Name" value="{{ old('name') }}">
+                        <input type="text" class="form-control" name="name" id="name"  id="name" value="{{ $category->name }}" placeholder="Category Name" >
                     </div>
         
                     <div>

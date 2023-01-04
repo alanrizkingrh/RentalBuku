@@ -12,12 +12,12 @@ class BookController extends Controller
     {
         $books = Book::all();
         $books = Book::where('title', 'like', '%'.$request->title.'%')->get();
-        return view('book', ['books' => $books]);
+        return view('books/book', ['books' => $books]);
     }
     public function add()
     {
         $categories = Category::all();
-        return view ('book-add',['categories'=>$categories]);
+        return view ('books/book-add',['categories'=>$categories]);
     }
     public function store(Request $request)
     {
@@ -40,7 +40,7 @@ class BookController extends Controller
     {
         $book = Book::where('slug', $slug)->first();
         $categories = Category::all();
-        return view ('book-edit',['categories'=> $categories, 'book' => $book]);
+        return view ('books/book-edit',['categories'=> $categories, 'book' => $book]);
     }
 
     public function update(Request $request, $slug)
@@ -66,7 +66,7 @@ class BookController extends Controller
     public function delete($slug)
     {
         $book = Book::where('slug', $slug)->first();
-        return view ('book-delete', ['book' => $book]);
+        return view ('books/book-delete', ['book' => $book]);
     }
     public function destroy($slug)
     {   
@@ -77,7 +77,7 @@ class BookController extends Controller
     public function deletedBook()
     {
         $deletedBooks = Book::onlyTrashed()->get();
-        return view('book-deleted-list',['deletedBooks' => $deletedBooks]);
+        return view('books/book-deleted-list',['deletedBooks' => $deletedBooks]);
     } 
     public function restore($slug)
     {

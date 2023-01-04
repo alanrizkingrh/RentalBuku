@@ -13,11 +13,11 @@ class CategoryController extends Controller
         //tes
         $categories = Category::paginate(5);
         //sampai sini
-        return view('category', ['categories' =>$categories]);
+        return view('category/category', ['categories' =>$categories]);
     }
     public function add()
     {
-        return view('category-add');
+        return view('category/category-add');
     }
     public function store(Request $request)
     {
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function edit($slug)  
     {
         $category = Category::where('slug', $slug)->first();
-        return view ('category-edit',['category'=> $category]);
+        return view ('category/category-edit',['category'=> $category]);
     }
     public function update(Request $request, $slug)
     {
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     public function delete($slug)    
     {
         $category = Category::where('slug', $slug)->first();
-        return view ('category-delete',['category' =>$category]);
+        return view ('category/category-delete',['category' =>$category]);
     }
     public function destroy($slug)
     {   
@@ -60,7 +60,7 @@ class CategoryController extends Controller
     {
         $deletedCategories = Category::onlyTrashed()->get();
         // dd($deletedCategories);
-        return view('category-deleted-list',['deletedCategories' => $deletedCategories]);
+        return view('category/category-deleted-list',['deletedCategories' => $deletedCategories]);
     } 
     public function restore($slug)
     {

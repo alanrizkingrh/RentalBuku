@@ -1,4 +1,4 @@
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
 @section('title', 'Edit Buku')
     
@@ -11,7 +11,7 @@
 <div class="card">
     <div class="card-body">
         <div class="mt-2 ">
-            <form action="/book-edit/{{ $book->slug }}" method="POST" enctype="multipart/form-data"> 
+            <form action="{{ route('book-edit', $book->slug) }}" method="POST" enctype="multipart/form-data"> 
                 @csrf
                 <div class="mb-3">
                     <label for="code" class="form-label">Kode Buku</label>

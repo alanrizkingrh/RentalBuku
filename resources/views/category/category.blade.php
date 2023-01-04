@@ -1,9 +1,9 @@
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
-@section('title', 'Kategori Terhapus')
+@section('title', 'Kategori Buku')
    
 @section('content')
-    <h1>Daftar Kategori Yang Terhapus</h1>
+    <h1>Daftar Kategori</h1>
 
     <div class="mt-1">
         @if (session('status'))
@@ -12,13 +12,15 @@
             </div>
         @endif
     </div>
+
     <div class="card">
         <div class="card-body">
-            <div class="mt-2 d-flex justify-content-end">
-                <a href="/categories" class="btn btn-danger" me-3>Back</a>
+            <div class="mt-2">
+                <a href="/category-add" class="btn btn-success" me-3>Tambah Kategori +</a>
+                <a href="/category-deleted" class="btn btn-secondary">Lihat Data Yang Dihapus</a>
             </div>
-            <div class="my-2">
-                <table class="table table-danger table-hover">
+            <div class="my-3">
+                <table class="table table-hover ">
                     <thead class="table-dark">
                         <tr>
                             <th>No</th>
@@ -27,19 +29,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($deletedCategories as $item)
+                        @foreach ($categories as $index => $item)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $index + $categories->firstItem() }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="/category-restore/{{ $item->slug }} " class="btn btn-warning">Restore</a>
+                                <a href="{{ route('category-edit', $item->slug) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('category-delete', $item->slug) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>  
                         @endforeach
                     </tbody>
                 </table>
             </div>
+            {{ $categories->links() }}
         </div>
     </div>
-   
+    
 @endsection

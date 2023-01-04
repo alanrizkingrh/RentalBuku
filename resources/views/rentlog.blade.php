@@ -1,5 +1,5 @@
 <!--Penyewaanbuku-->
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
 @section('title', 'Dashboard')
 

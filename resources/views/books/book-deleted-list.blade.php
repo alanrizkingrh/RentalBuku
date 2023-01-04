@@ -1,4 +1,4 @@
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
 @section('title', 'Buku Terhapus')
    
@@ -35,7 +35,7 @@
                             <td>{{ $item->book_code }}</td>
                             <td>{{ $item->title }}</td>
                             <td>
-                                <a href="/book-restore/{{ $item->slug }} " class="btn btn-warning">Restore</a>
+                                <a href="{{ route('book-restore', $item->slug) }}" class="btn btn-warning">Restore</a>
                             </td>
                         </tr>  
                         @endforeach

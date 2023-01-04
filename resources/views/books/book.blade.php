@@ -1,4 +1,4 @@
-@extends('layouts.mainlayouts')
+@extends('layouts.main-layouts')
 
 @section('title', 'Book')
 
@@ -65,8 +65,8 @@
                         </td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="/book-edit/{{ $item->slug }}" class="btn btn-info">Edit</a>
-                            <a href="/book-delete/{{ $item->slug }} " class="btn btn-danger">Delete</a>
+                            <a href="{{ route('book-edit', $item->slug) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('book-delete', $item->slug) }}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach
