@@ -44,7 +44,7 @@ Route::middleware(['only_guest'])->group(function () {
             Route::get('book-edit/{slug}', [BookController::class, 'edit'])->name('book-edit');
             Route::post('book-edit/{slug}', [BookController::class, 'update'])->name('book-update');
             Route::get('book-delete/{slug}', [BookController::class, 'delete'])->name('book-delete');
-            Route::get('book-destroy/{slug}', [BookController::class, 'destroy'])->name('book-destroy');
+            Route::get('book-destroy/{slug}', [BookController::class, 'destroy'])->name('book-destroy');//proses hapus
             Route::get('book-deleted', [BookController::class, 'deletedBook'])->name('list-deletedBook');
             Route::get('book-restore/{slug}', [BookController::class, 'restore'])->name('book-restore');
 
@@ -59,7 +59,15 @@ Route::middleware(['only_guest'])->group(function () {
             Route::get('category-restore/{slug}', [CategoryController::class, 'restore'])->name('category-restore');
             
             Route::get('users', [UserController::class, 'index']);
-
+            Route::get('registered-user', [UserController::class, 'registeredUser']);
+            Route::get('user-detail/{slug}', [UserController::class, 'show'])->name('user-detail');
+            Route::get('user-approve/{slug}', [UserController::class, 'approve'])->name('user-approve');
+            Route::get('user-aktif/{slug}', [UserController::class, 'aktif'])->name('user-aktif');//aprove user di new registered user
+            Route::get('user-ban/{slug}', [UserController::class, 'delete'])->name('user-ban');//yakin ingin menghapus user?
+            Route::get('user-destroy/{slug}', [UserController::class, 'destroy'])->name('user-destroy');
+            Route::get('user-banned', [UserController::class, 'bannedUser']);
+            Route::get('user-restore/{slug}', [UserController::class, 'restore'])->name('user-restore');
+    
             Route::get('book-rent', [BookRentController::class, 'index']);
             Route::get('book-return', [BookRentController::class, 'store']);
     
