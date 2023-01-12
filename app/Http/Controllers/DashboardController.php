@@ -15,6 +15,7 @@ class DashboardController extends Controller
         $bookCount = Book::count();
         $categoryCount = Category::count();
         $userCount = User::count();
-        return view('dashboard',['book_count'=> $bookCount, 'category_count' => $categoryCount, 'user_count' => $userCount]);
+        $rentLogs = RentLogs::with(['user','book'])->get();
+        return view('dashboard',['book_count'=> $bookCount, 'category_count' => $categoryCount, 'user_count' => $userCount, 'rent_logs' => $rentLogs]);
     }
 }

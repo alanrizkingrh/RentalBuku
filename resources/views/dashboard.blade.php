@@ -45,14 +45,8 @@
             <div class="card-body">
                 <table class="table table-hover caption-top">
                   <caption><h2>Riwayat Penyewaan Semua User</h2></caption>
-                        <tr>
-                            <th>No.</th>
-                        <th>User</th>
-                        <th>Buku</th>
-                        <th>Tgl Peminjaman</th>
-                        <th>Batas Peminjaman</th>
-                        <th>Tgl pengembalian</th>
-                        </tr>
+                        <x-rent-log-table :rentlog='$rent_logs' />
+                        
                   </div>
             </div>
         
